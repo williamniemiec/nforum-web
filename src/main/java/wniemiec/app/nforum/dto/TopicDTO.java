@@ -16,7 +16,7 @@ public class TopicDTO {
 	}
 	
 	public TopicDTO(String title, String content) {
-		this(null, title, content, null);
+		this(null, title, content, (UserDTO) null);
 	}
 	
 	public TopicDTO(Integer id, String title, String content, UserDTO author) {
@@ -25,6 +25,14 @@ public class TopicDTO {
 		this.title = title;
 		this.content = content;
 		this.author = author;
+	}
+	
+	public TopicDTO(Integer id, String title, String content, String authorId) {
+		this();
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.author = new UserDTO(authorId);
 	}
 
 	public Integer getId() {

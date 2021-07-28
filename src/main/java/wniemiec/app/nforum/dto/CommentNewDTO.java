@@ -14,6 +14,12 @@ public class CommentNewDTO {
 		this.topicId = topicId;
 	}
 	
+	public CommentNewDTO(String content, Integer topicId, String authorId) {
+		this.content = content;
+		this.topicId = topicId;
+		this.authorId = authorId;
+	}
+	
 	public String getContent() {
 		return content;
 	}

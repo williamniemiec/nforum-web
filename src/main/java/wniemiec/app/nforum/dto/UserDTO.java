@@ -10,6 +10,10 @@ public class UserDTO {
 	public UserDTO() {
 	}
 	
+	public UserDTO(String login) {
+		this.login = login;
+	}
+	
 	public UserDTO(String login, String name, String email, int points) {
 		this.login = login;
 		this.name = name;
