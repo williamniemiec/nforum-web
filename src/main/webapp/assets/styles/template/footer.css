@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 8vh;
+	background-color: #333333;
+	color: white;
+}

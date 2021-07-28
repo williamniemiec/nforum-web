@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+nav {
+	background-color: #333333;
+	color: white;
+	height: 8vh;
+}
+
+.navbar-brand img {
+	height: 40px;
+}
+
+#navbar-menu {
+	justify-content: flex-end;
+}
+

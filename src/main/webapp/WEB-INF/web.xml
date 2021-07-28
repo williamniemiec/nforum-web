@@ -1,0 +1,21 @@
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>HomeController</servlet-name>
+  	<display-name>HomeController</display-name>
+  	<description></description>
+  	<servlet-class>wniemiec.app.nforum.controllers.HomeController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AuthController</servlet-name>
+  	<display-name>AuthController</display-name>
+  	<description></description>
+  	<servlet-class>wniemiec.app.nforum.controllers.AuthController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>TopicController</servlet-name>
+  	<display-name>TopicController</display-name>
+  	<description></description>
+  	<servlet-class>wniemiec.app.nforum.controllers.TopicController</servlet-class>
+  </servlet>
+</web-app>

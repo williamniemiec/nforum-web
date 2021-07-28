@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+main {
+	min-height: 84vh;
+	background-image: url("/assets/images/background.jpg");
+	background-color: "#444444";
+	background-position: top;
+	background-size: cover;
+	padding-bottom: 50px;
+}
+
+main .header {
+	height: 100px;
+	display: flex;
+	align-items: center;
+	background-color: rgba(182, 16, 145, 0.6);
+}
+
+main .header h1 {
+	color: white;
+}
+
+main .panel {
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	border: 1px solid #707070;
+	padding: 20px;
+	border-radius: 10px;
+	margin-top: 80px;
+}
+
+label,
+.btn,
+.panel a {
+	color: white;
+	text-decoration: none;
+}
+
+.highlight {
+	background-color: #B71092;
+	color: white;
+	outline: none !important;
+}
+
+.panel .btn:not(.btn-link) {
+	color: white;
+	outline: none !important;
+	background-color: #B71092;
+	margin: 10px 0;
+	transition: all ease 0.3s;
+}
+
+.panel .btn.outline:not(.btn-link) {
+	color: #B71092;
+	border: 2px solid #B71092;
+	outline: none !important;
+	background-color: transparent;
+}
+
+.panel .btn.outline:not(.btn-link):active,
+.panel .btn.outline:not(.btn-link):hover,
+.panel .btn.outline:not(.btn-link):focus {
+	background-color: #B71092;
+	color: white;
+}
+
+
+.btn:not(:disabled):not(.disabled):not(.btn-link).active:focus,
+.btn:not(:disabled):not(.disabled):not(.btn-link):active:focus,
+.show>.btn.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(182, 16, 145, .5);
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 20px;
+}
+
+.alert {
+	width: 100%;
+}
+
+table {
+	background-color: #F2F2F2;
+	border: 0;
+	margin-bottom: 0 !important;
+	transition: all ease 0.3s;
+}
+
+table tr {
+	transition: all ease 0.3s;
+}
+
+.table-responsive {
+	border: 2px solid #000 !important;
+	border-radius: 10px;
+}
+
+table thead {
+	color: white;
+	background-color: #B71092;
+}
+
+table tbody {
+	color: black;
+}
+
+td a {
+	color: black !important;
+	transition: all ease 0.3s;
+}
+
+td a:hover {
+	color: #B71092 !important;
+}
+
+table thead tr th {
+	border: 0 !important;
+	border-left: 1px solid #333 !important;
+	border-right: 1px solid #333 !important;
+	border-bottom: 1px solid #333 !important;
+}
+
+table tbody tr td {
+	border-left: 1px solid #333 !important;
+	border-right: 1px solid #333 !important;
+}

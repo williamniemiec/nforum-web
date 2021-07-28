@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.topic-message {
+	background-color: white;
+	color: black;
+	padding: 10px 50px;
+	width: 100%;
+	border: 1px solid #707070;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
+.panel h1 {
+	color: white;
+	font-size: 20px;
+	margin: 5px 0;
+}
+
+.topic-message h2 {
+	color: black;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.topic-message p {
+	font-size: 15px;
+	margin: 0;
+}
+
+label {
+	font-size: 20px;
+}
