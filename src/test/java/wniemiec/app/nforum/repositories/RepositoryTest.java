@@ -17,7 +17,7 @@ public abstract class RepositoryTest {
     public void setUp() throws Exception {
 		jdt = new JdbcDatabaseTester(
 			DatabaseConfig.getDriver(),
-			DatabaseConfig.getHost(),
+			DatabaseConfig.getUri(),
 			DatabaseConfig.getUsername(),
 			DatabaseConfig.getPassword()
 		);

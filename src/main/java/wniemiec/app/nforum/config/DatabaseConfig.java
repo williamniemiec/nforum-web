@@ -7,27 +7,21 @@ import java.sql.SQLException;
 
 public class DatabaseConfig {
 
-	private static final String DB_DRIVER;
-	private static final String DB_HOST;
-	private static final String DB_USERNAME;
-	private static final String DB_PASSWORD;
+	private static final Database database;
 	
 	static {
-		DB_DRIVER = "org.postgresql.Driver";
-		DB_HOST = "jdbc:postgresql://localhost/nforum";
-		DB_USERNAME = "postgres";
-		DB_PASSWORD = "root";
+		database = new ProductionDatabase();
 	}
 	
 	public static void resetIndex() throws SQLException {
 		try {
-			Class.forName(DB_DRIVER);
+			Class.forName(getDriver());
 		}
 		catch (ClassNotFoundException e) {
 		}
 		
 		try (Connection c = DriverManager.getConnection(
-			DB_HOST, DB_USERNAME, DB_PASSWORD
+			getUri(), getUsername(), getPassword()
 		)) {
 			executeUpdate(c, "ALTER SEQUENCE comment_id_comment_seq RESTART WITH 3");
 			executeUpdate(c, "ALTER SEQUENCE topic_id_topic_seq RESTART WITH 3");
@@ -41,18 +35,18 @@ public class DatabaseConfig {
 	}
 	
 	public static String getDriver() {
-		return DB_DRIVER;
+		return database.getDriver();
 	}
 	
-	public static String getHost() {
-		return DB_HOST;
+	public static String getUri() {
+		return database.getUri();
 	}
 	
 	public static String getUsername() {
-		return DB_USERNAME;
+		return database.getUsername();
 	}
 	
 	public static String getPassword() {
-		return DB_PASSWORD;
+		return database.getPassword();
 	}
 }

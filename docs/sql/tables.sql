@@ -5,7 +5,7 @@ CREATE TABLE user_account
   "name" text,
   "password" text,
   points integer,
-  CONSTRAINT user_pkey PRIMARY KEY (login)
+  CONSTRAINT user_account_pkey PRIMARY KEY (login)
 );
 
 CREATE SEQUENCE topic_id_topic_seq
@@ -23,7 +23,7 @@ CREATE TABLE topic
   login text,
   CONSTRAINT topic_pkey PRIMARY KEY (id_topic),
   CONSTRAINT topic_login_fkey FOREIGN KEY (login)
-      REFERENCES "user" (login) MATCH SIMPLE
+      REFERENCES user_account (login) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -45,6 +45,6 @@ CREATE TABLE topic_comment
       REFERENCES topic (id_topic) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT comment_login_fkey FOREIGN KEY (login)
-      REFERENCES "user" (login) MATCH SIMPLE
+      REFERENCES user_account (login) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 )
