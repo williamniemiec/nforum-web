@@ -12,12 +12,12 @@ import org.junit.Test;
 
 import wniemiec.app.nforum.dto.UserDTO;
 
-public class UserRepositoryTest extends RepositoryTest {
+public class UserAccountRepositoryTest extends RepositoryTest {
 	
-	private UserRepository userRepository;
+	private UserAccountRepository userRepository;
 	
-	public UserRepositoryTest() {
-		userRepository = new UserRepository();
+	public UserAccountRepositoryTest() {
+		userRepository = new UserAccountRepository();
 	}
 	
 	@Test
@@ -41,11 +41,11 @@ public class UserRepositoryTest extends RepositoryTest {
 		userRepository.insert("user 3", "user3", "user3@email.com", "123");
 		
 		IDataSet currentDatabase = jdt.getConnection().createDataSet();
-		ITable currentTable = currentDatabase.getTable("USUARIO");
+		ITable currentTable = currentDatabase.getTable("user_account");
 		
 		FlatXmlDataFileLoader loader = new FlatXmlDataFileLoader();
-		IDataSet expectedDatabase = loader.load("../../../../dataset-dbunit-UserRepositoryTest-insert.xml");
-		ITable expectedTable = expectedDatabase.getTable("USUARIO");
+		IDataSet expectedDatabase = loader.load("../../../../dataset-dbunit-UserAccountRepositoryTest-insert.xml");
+		ITable expectedTable = expectedDatabase.getTable("user_account");
 		
 		org.dbunit.Assertion.assertEquals(expectedTable, currentTable);
 	}
@@ -55,11 +55,11 @@ public class UserRepositoryTest extends RepositoryTest {
 		userRepository.insertPoints("user1", 9);
 		
 		IDataSet currentDatabase = jdt.getConnection().createDataSet();
-		ITable currentTable = currentDatabase.getTable("USUARIO");
+		ITable currentTable = currentDatabase.getTable("user_account");
 		
 		FlatXmlDataFileLoader loader = new FlatXmlDataFileLoader();
-		IDataSet expectedDatabase = loader.load("../../../../dataset-dbunit-UserRepositoryTest-insertPoints.xml");
-		ITable expectedTable = expectedDatabase.getTable("USUARIO");
+		IDataSet expectedDatabase = loader.load("../../../../dataset-dbunit-UserAccountRepositoryTest-insertPoints.xml");
+		ITable expectedTable = expectedDatabase.getTable("user_account");
 		
 		org.dbunit.Assertion.assertEquals(expectedTable, currentTable);
 	}

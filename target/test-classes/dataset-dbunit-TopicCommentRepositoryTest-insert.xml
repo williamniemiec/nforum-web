@@ -7,4 +7,5 @@
 	
 	<topic_comment id_comment="1" comment="first" login="user2" id_topic="1" />
 	<topic_comment id_comment="2" comment="second" login="user1" id_topic="1" />
+	<topic_comment id_comment="3" comment="third" login="user2" id_topic="1" />
 </dataset>

@@ -8,18 +8,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import wniemiec.app.nforum.config.DatabaseConfig;
 import wniemiec.app.nforum.dto.CommentDTO;
 import wniemiec.app.nforum.dto.CommentNewDTO;
 import wniemiec.app.nforum.repositories.enums.Points;
-import wniemiec.app.nforum.services.UserService;
+import wniemiec.app.nforum.services.UserAccountService;
 
 public class CommentRepository {
 	
-	private UserService userService = new UserService();
+	private UserAccountService userService = new UserAccountService();
 
 	static {
 		try {
-			Class.forName("org.postgresql.Driver");
+			Class.forName(DatabaseConfig.getDriver());
 		}
 		catch (ClassNotFoundException e) {
 		}
@@ -30,12 +31,12 @@ public class CommentRepository {
 		List<CommentDTO> comments = new ArrayList<>();
 		
 		try (Connection c = DriverManager.getConnection(
-			"jdbc:postgresql://localhost/nforum", "postgres", "root"
+			DatabaseConfig.getHost(), DatabaseConfig.getUsername(), DatabaseConfig.getPassword()
 		)) {
 			String sql = new StringBuilder()
 				.append("SELECT	* ")
-				.append("FROM	comentario ")
-				.append("WHERE	id_topico = ? ")
+				.append("FROM	topic_comment ")
+				.append("WHERE	id_topic = ? ")
 				.toString();
 			
 			PreparedStatement stmt = c.prepareStatement(sql);
@@ -45,8 +46,8 @@ public class CommentRepository {
 			
 			while (rs.next()) {
 				comments.add(new CommentDTO(
-					rs.getInt("id_comentario"),
-					rs.getString("comentario"),
+					rs.getInt("id_comment"),
+					rs.getString("comment"),
 					userService.findByLogin(rs.getString("login"))
 				));
 			}
@@ -57,11 +58,11 @@ public class CommentRepository {
 	
 	public void insert(CommentNewDTO comment) throws SQLException {
 		try (Connection c = DriverManager.getConnection(
-			"jdbc:postgresql://localhost/nforum", "postgres", "root"
+			DatabaseConfig.getHost(), DatabaseConfig.getUsername(), DatabaseConfig.getPassword()
 		)) {
 			String sql = new StringBuilder()
-				.append("INSERT	INTO comentario ")
-				.append("(comentario, login, id_topico) ")
+				.append("INSERT	INTO topic_comment ")
+				.append("(\"comment\", login, id_topic) ")
 				.append("VALUES (?, ?, ?) ")
 				.toString();
 			
@@ -73,8 +74,8 @@ public class CommentRepository {
 			stmt.executeUpdate();
 			
 			sql = new StringBuilder()
-				.append("UPDATE	usuario ")
-				.append("SET 	pontos = pontos + ? ")
+				.append("UPDATE	user_account ")
+				.append("SET 	points = points + ? ")
 				.append("WHERE 	login = ?")
 				.toString();
 			stmt = c.prepareStatement(sql);

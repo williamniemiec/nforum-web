@@ -16,6 +16,13 @@
 	margin: 5px 0;
 }
 
+.comments > h2 {
+	color: white;
+	font-size: 15px;
+	margin: 5px 0;
+	margin-left: 50px;
+}
+
 .topic-message h2 {
 	color: black;
 	font-size: 15px;

@@ -22,16 +22,21 @@
 		<div class="panel">
 			<div class="topic-message">
 				<h2>${topic.author.name}</h2>
-				<p>${topic.content}<</p>
+				<p>${topic.content}</p>
 			</div>
 			
 			<h1>Answers</h1>
-			<c:forEach var="comment" items="${topic.comments}">
-				<div class="topic-message">
-					<h2>${comment.author.login}</h2>
-					<p>${comment.content}</p>
-				</div>
-			</c:forEach>
+				<div class="comments">
+				<c:if test="${topic.comments.size() == 0}">
+					<h2>Be the first to comment!</h2>
+				</c:if>
+				<c:forEach var="comment" items="${topic.comments}">
+					<div class="topic-message">
+						<h2>${comment.author.login}</h2>
+						<p>${comment.content}</p>
+					</div>
+				</c:forEach>
+			</div>
 			
 			<form method="POST">
 				<div class="form-group">

@@ -7,12 +7,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import wniemiec.app.nforum.core.ViewLoader;
 import wniemiec.app.nforum.dto.UserNewDTO;
-import wniemiec.app.nforum.services.UserService;
+import wniemiec.app.nforum.services.UserAccountService;
 import wniemiec.app.nforum.services.exceptions.NewElementException;
 
 public class SignUpController {
 	
-	private UserService userService = new UserService();
+	private UserAccountService userService = new UserAccountService();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {

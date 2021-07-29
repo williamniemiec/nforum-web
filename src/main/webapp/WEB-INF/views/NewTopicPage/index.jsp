@@ -37,11 +37,9 @@
 					<textarea 
 						id="body" 
 						class="form-control" 
-						name="body" 
-						placeholder="Something..."
+						name="body"
 						required
-					>
-					</textarea>
+					></textarea>
 				</div>
 				<input class="btn btn-block" type="submit" value="Create" />
 			</form>

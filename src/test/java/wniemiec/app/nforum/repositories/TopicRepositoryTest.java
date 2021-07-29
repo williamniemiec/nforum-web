@@ -38,11 +38,11 @@ public class TopicRepositoryTest extends RepositoryTest {
 		));
 		
 		IDataSet currentDatabase = jdt.getConnection().createDataSet();
-		ITable currentTable = currentDatabase.getTable("TOPICO");
+		ITable currentTable = currentDatabase.getTable("topic");
 		
 		FlatXmlDataFileLoader loader = new FlatXmlDataFileLoader();
 		IDataSet expectedDatabase = loader.load("../../../../dataset-dbunit-TopicRepositoryTest-insert.xml");
-		ITable expectedTable = expectedDatabase.getTable("TOPICO");
+		ITable expectedTable = expectedDatabase.getTable("topic");
 		
 		org.dbunit.Assertion.assertEquals(expectedTable, currentTable);
 	}

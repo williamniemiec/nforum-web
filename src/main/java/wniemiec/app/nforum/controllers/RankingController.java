@@ -11,14 +11,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import wniemiec.app.nforum.core.ViewLoader;
 import wniemiec.app.nforum.dto.UserDTO;
 import wniemiec.app.nforum.services.AuthService;
-import wniemiec.app.nforum.services.UserService;
+import wniemiec.app.nforum.services.UserAccountService;
 
 @WebServlet(urlPatterns= {"/ranking"})
 public class RankingController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private UserService userService = new UserService();
+	private UserAccountService userService = new UserAccountService();
 	private AuthService authService = new AuthService();
 
 	@Override

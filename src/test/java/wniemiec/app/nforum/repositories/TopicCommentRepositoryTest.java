@@ -13,11 +13,11 @@ import org.junit.Test;
 import wniemiec.app.nforum.dto.CommentDTO;
 import wniemiec.app.nforum.dto.CommentNewDTO;
 
-public class CommentRepositoryTest extends RepositoryTest {
+public class TopicCommentRepositoryTest extends RepositoryTest {
 	
 	private CommentRepository commentRepository;
 	
-	public CommentRepositoryTest() {
+	public TopicCommentRepositoryTest() {
 		commentRepository = new CommentRepository();
 	}
 	
@@ -39,11 +39,11 @@ public class CommentRepositoryTest extends RepositoryTest {
 		));
 		
 		IDataSet currentDatabase = jdt.getConnection().createDataSet();
-		ITable currentTable = currentDatabase.getTable("COMENTARIO");
+		ITable currentTable = currentDatabase.getTable("topic_comment");
 		
 		FlatXmlDataFileLoader loader = new FlatXmlDataFileLoader();
-		IDataSet expectedDatabase = loader.load("../../../../dataset-dbunit-CommentRepositoryTest-insert.xml");
-		ITable expectedTable = expectedDatabase.getTable("COMENTARIO");
+		IDataSet expectedDatabase = loader.load("../../../../dataset-dbunit-TopicCommentRepositoryTest-insert.xml");
+		ITable expectedTable = expectedDatabase.getTable("topic_comment");
 		
 		org.dbunit.Assertion.assertEquals(expectedTable, currentTable);
 	}

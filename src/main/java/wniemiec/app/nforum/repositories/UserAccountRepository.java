@@ -8,13 +8,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import wniemiec.app.nforum.config.DatabaseConfig;
 import wniemiec.app.nforum.dto.UserDTO;
 
-public class UserRepository {
+public class UserAccountRepository {
 
 	static {
 		try {
-			Class.forName("org.postgresql.Driver");
+			Class.forName(DatabaseConfig.getDriver());
 		}
 		catch (ClassNotFoundException e) {
 		}
@@ -28,11 +29,11 @@ public class UserRepository {
 		UserDTO user = null;
 		
 		try (Connection c = DriverManager.getConnection(
-			"jdbc:postgresql://localhost/nforum", "postgres", "root"
+			DatabaseConfig.getHost(), DatabaseConfig.getUsername(), DatabaseConfig.getPassword()
 		)) {
 			String sql = new StringBuilder()
 				.append("SELECT	* ")
-				.append("FROM	usuario ")
+				.append("FROM	user_account ")
 				.append("WHERE	login = ? ")
 				.toString();
 			
@@ -44,9 +45,9 @@ public class UserRepository {
 			if (rs.next()) {
 				user = new UserDTO(
 					rs.getString("login"),
-					rs.getString("nome"),
+					rs.getString("name"),
 					rs.getString("email"),
-					rs.getInt("pontos")
+					rs.getInt("points")
 				);
 			}
 		}
@@ -59,13 +60,13 @@ public class UserRepository {
 		UserDTO user = null;
 		
 		try (Connection c = DriverManager.getConnection(
-			"jdbc:postgresql://localhost/nforum", "postgres", "root"
+			DatabaseConfig.getHost(), DatabaseConfig.getUsername(), DatabaseConfig.getPassword()
 		)) {
 			String sql = new StringBuilder()
 				.append("SELECT	* ")
-				.append("FROM	usuario ")
+				.append("FROM	user_account ")
 				.append("WHERE	login = ? ")
-				.append("		AND senha = ?")
+				.append("		AND \"password\" = ?")
 				.toString();
 			
 			PreparedStatement stmt = c.prepareStatement(sql);
@@ -77,9 +78,9 @@ public class UserRepository {
 			if (rs.next()) {
 				user = new UserDTO(
 					rs.getString("login"),
-					rs.getString("nome"),
+					rs.getString("name"),
 					rs.getString("email"),
-					rs.getInt("pontos")
+					rs.getInt("points")
 				);
 			}
 		}
@@ -90,11 +91,11 @@ public class UserRepository {
 	public boolean insert(String name, String login, String email, String password) 
 			throws SQLException {
 		try (Connection c = DriverManager.getConnection(
-			"jdbc:postgresql://localhost/nforum", "postgres", "root"
+			DatabaseConfig.getHost(), DatabaseConfig.getUsername(), DatabaseConfig.getPassword()
 		)) {
 			String sql = new StringBuilder()
-				.append("INSERT INTO usuario ")
-				.append("(nome, login, email, senha, pontos) ")
+				.append("INSERT INTO user_account ")
+				.append("(\"name\", login, email, \"password\", points) ")
 				.append("VALUES (?, ?, ?, ?, 0) ")
 				.toString();
 			
@@ -110,11 +111,11 @@ public class UserRepository {
 
 	public boolean insertPoints(String login, int points) throws SQLException {
 		try (Connection c = DriverManager.getConnection(
-			"jdbc:postgresql://localhost/nforum", "postgres", "root"
+			DatabaseConfig.getHost(), DatabaseConfig.getUsername(), DatabaseConfig.getPassword()
 		)) {
 			String sql = new StringBuilder()
-				.append("UPDATE	usuario ")
-				.append("SET 	pontos = pontos + ? ")
+				.append("UPDATE	user_account ")
+				.append("SET 	points = points + ? ")
 				.append("WHERE 	login = ?")
 				.toString();
 			
@@ -130,12 +131,12 @@ public class UserRepository {
 		List<UserDTO> users = new ArrayList<>();
 		
 		try (Connection c = DriverManager.getConnection(
-			"jdbc:postgresql://localhost/nforum", "postgres", "root"
+			DatabaseConfig.getHost(), DatabaseConfig.getUsername(), DatabaseConfig.getPassword()
 		)) {
 			String sql = new StringBuilder()
 				.append("SELECT		* ")
-				.append("FROM		usuario ")
-				.append("ORDER BY	pontos DESC")
+				.append("FROM		user_account ")
+				.append("ORDER BY	points DESC")
 				.toString();
 			
 			PreparedStatement stmt = c.prepareStatement(sql);
@@ -144,9 +145,9 @@ public class UserRepository {
 			while (rs.next()) {
 				users.add(new UserDTO(
 					rs.getString("login"),
-					rs.getString("nome"),
+					rs.getString("name"),
 					rs.getString("email"),
-					rs.getInt("pontos")
+					rs.getInt("points")
 				));
 			}
 		}

@@ -8,18 +8,19 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import wniemiec.app.nforum.dto.UserDTO;
 import wniemiec.app.nforum.dto.UserNewDTO;
-import wniemiec.app.nforum.repositories.UserRepository;
+import wniemiec.app.nforum.repositories.UserAccountRepository;
 import wniemiec.app.nforum.services.exceptions.NewElementException;
 
-public class UserService {
+public class UserAccountService {
 
-	private UserRepository userRepository = new UserRepository();
+	private UserAccountRepository userRepository = new UserAccountRepository();
 	
 	public UserDTO findByLogin(String login) {
 		try {
 			return userRepository.findByLogin(login);
 		} 
 		catch (SQLException e) {
+			System.err.println(e);
 			return null;
 		}
 	}
@@ -35,6 +36,7 @@ public class UserService {
 			);
 		} 
 		catch (SQLException e) {
+			System.err.println(e);
 			return null;
 		}
 	}

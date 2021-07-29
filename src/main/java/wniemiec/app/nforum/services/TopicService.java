@@ -14,7 +14,7 @@ import wniemiec.app.nforum.services.exceptions.NewElementException;
 public class TopicService {
 
 	private TopicRepository topicRepository = new TopicRepository();
-	private UserService userService = new UserService();
+	private UserAccountService userService = new UserAccountService();
 	
 	public TopicDTO findById(Integer id) throws ElementNotFoundException {
 		try {

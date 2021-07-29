@@ -6,7 +6,7 @@ import wniemiec.app.nforum.dto.UserDTO;
 
 public class AuthService {
 	
-	private UserService userService = new UserService();
+	private UserAccountService userService = new UserAccountService();
 
 	public boolean signin(CredentialsDTO credentials, HttpSession session) {
 		UserDTO user = userService.findByLoginAndPassword(
