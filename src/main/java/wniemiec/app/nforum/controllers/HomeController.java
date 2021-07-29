@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import wniemiec.app.nforum.services.AuthService;
 
-@WebServlet("/")
+@WebServlet("/home")
 public class HomeController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
