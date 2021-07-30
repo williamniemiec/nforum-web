@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DatabaseConfig {
 
-	private static final Database database;
+	private static Database database;
 	
 	static {
 		database = new ProductionDatabase();
@@ -48,5 +48,9 @@ public class DatabaseConfig {
 	
 	public static String getPassword() {
 		return database.getPassword();
+	}
+	
+	public static void setDatabase(Database database) {
+		this.database = database;
 	}
 }
