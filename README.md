@@ -20,6 +20,15 @@ This is a simple forum project made using servlets and jsp pages. The main objec
 ## ⚠ Warnings
 The hosting service Heroku may have a certain delay (~ 1 min) for uploading the application so the loading of the website may have a certain delay. 
 
+## 🖼 Gallery
+
+![gif1](https://github.com/williamniemiec/nForum/blob/master/docs/gif/nforum-1.gif?raw=true)
+
+![gif2](https://github.com/williamniemiec/nForum/blob/master/docs/gif/nforum-2.gif?raw=true)
+
+![gif3](https://github.com/williamniemiec/nForum/blob/master/docs/gif/nforum-3.gif?raw=true)
+
+
 ## 🚩 Changelog
 Details about each version are documented in the [releases section](https://github.com/williamniemiec/nForum/releases).
 
