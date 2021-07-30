@@ -16,15 +16,24 @@ import wniemiec.app.nforum.services.TopicService;
 import wniemiec.app.nforum.services.exceptions.ElementNotFoundException;
 import wniemiec.app.nforum.services.exceptions.NewElementException;
 
+/**
+ * Responsible for handling topic requests.
+ */
 @WebServlet(urlPatterns={"/topics/*"})
 public class TopicController extends HttpServlet {
 	
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private static final long serialVersionUID = 1L;
-	
 	private TopicService topicService = new TopicService();
 	private CommentService commentService = new CommentService();
 	private AuthService authService = new AuthService();
-    
+  
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {

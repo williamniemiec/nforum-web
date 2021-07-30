@@ -9,10 +9,20 @@ import wniemiec.app.nforum.core.ViewLoader;
 import wniemiec.app.nforum.dto.CredentialsDTO;
 import wniemiec.app.nforum.services.AuthService;
 
+/**
+ * Responsible for handling sign in requests.
+ */
 public class SignInController {
 	
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private AuthService authService = new AuthService();
 	
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		ViewLoader.loadView(request, response, "SignInPage", "Sign In");

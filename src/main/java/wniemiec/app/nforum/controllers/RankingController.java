@@ -13,14 +13,23 @@ import wniemiec.app.nforum.dto.UserDTO;
 import wniemiec.app.nforum.services.AuthService;
 import wniemiec.app.nforum.services.UserAccountService;
 
+/**
+ * Responsible for handling ranking requests.
+ */
 @WebServlet(urlPatterns= {"/ranking"})
 public class RankingController extends HttpServlet {
 	
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private static final long serialVersionUID = 1L;
-	
 	private UserAccountService userService = new UserAccountService();
 	private AuthService authService = new AuthService();
 
+
+	//-------------------------------------------------------------------------
+	//		Metohds
+	//-------------------------------------------------------------------------
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {

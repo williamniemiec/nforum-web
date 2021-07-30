@@ -1,11 +1,21 @@
 package wniemiec.app.nforum.dto;
 
+/**
+ * Responsible for projecting data from a comment.
+ */
 public class CommentDTO {
 
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private Integer id;
 	private String content;
 	private UserDTO author;
 	
+
+	//-------------------------------------------------------------------------
+	//		Constructors
+	//-------------------------------------------------------------------------
 	public CommentDTO() {
 	}
 	
@@ -15,6 +25,10 @@ public class CommentDTO {
 		this.author = author;
 	}
 
+
+	//-------------------------------------------------------------------------
+	//		Getters & Setters
+	//-------------------------------------------------------------------------
 	public Integer getId() {
 		return id;
 	}

@@ -9,8 +9,14 @@ import java.util.List;
 
 import wniemiec.app.nforum.dto.UserDTO;
 
+/**
+ * Responsible for accessing the user account table from database.
+ */
 public class UserAccountRepository extends Repository {
 	
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	public UserDTO findByLogin(String login) throws SQLException {
 		if (login == null)
 			return null;

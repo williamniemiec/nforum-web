@@ -4,10 +4,20 @@ import javax.servlet.http.HttpSession;
 import wniemiec.app.nforum.dto.CredentialsDTO;
 import wniemiec.app.nforum.dto.UserDTO;
 
+/**
+ * Responsible for providing authentication services.
+ */
 public class AuthService {
 	
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private UserAccountService userService = new UserAccountService();
 
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	public boolean signin(CredentialsDTO credentials, HttpSession session) {
 		UserDTO user = userService.findByLoginAndPassword(
 			credentials.getLogin(),

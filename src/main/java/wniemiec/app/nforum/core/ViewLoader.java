@@ -6,8 +6,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Responsible for loading views.
+ */
 public class ViewLoader {
 	
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	public static void loadView(HttpServletRequest request, 
 			HttpServletResponse response, 
 			String viewName)

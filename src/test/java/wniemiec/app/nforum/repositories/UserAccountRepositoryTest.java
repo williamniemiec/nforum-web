@@ -14,12 +14,23 @@ import wniemiec.app.nforum.dto.UserDTO;
 
 public class UserAccountRepositoryTest extends RepositoryTest {
 	
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private UserAccountRepository userRepository;
 	
+
+	//-------------------------------------------------------------------------
+	//		Constructor
+	//-------------------------------------------------------------------------
 	public UserAccountRepositoryTest() {
 		userRepository = new UserAccountRepository();
 	}
 	
+
+	//-------------------------------------------------------------------------
+	//		Tests
+	//-------------------------------------------------------------------------
 	@Test
 	public void testFindByLogin() throws SQLException {
 		UserDTO user = userRepository.findByLogin("user1");

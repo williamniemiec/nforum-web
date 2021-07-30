@@ -1,10 +1,21 @@
 package wniemiec.app.nforum.dto;
 
+
+/**
+ * Responsible for projecting data from a credential.
+ */
 public class CredentialsDTO {
 
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private String login;
 	private String password;
 	
+
+	//-------------------------------------------------------------------------
+	//		Constructors
+	//-------------------------------------------------------------------------
 	public CredentialsDTO() {
 	}
 	
@@ -13,6 +24,10 @@ public class CredentialsDTO {
 		this.password = password;
 	}
 
+
+	//-------------------------------------------------------------------------
+	//		Getters & Setters
+	//-------------------------------------------------------------------------
 	public String getLogin() {
 		return login;
 	}

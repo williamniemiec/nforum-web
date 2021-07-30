@@ -1,5 +1,8 @@
 package wniemiec.app.nforum.config;
 
+/**
+ * Defines information needed to communicate with the production database.
+ */
 public class ProductionDatabase implements Database {
 
 	@Override

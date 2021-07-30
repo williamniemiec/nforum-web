@@ -9,13 +9,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import wniemiec.app.nforum.services.AuthService;
 
+/**
+ * Responsible for handling initial request.
+ */
 @WebServlet("/home")
 public class HomeController extends HttpServlet {
 	
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private static final long serialVersionUID = 1L;
-	
 	private AuthService authService = new AuthService();
        
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		boolean logged = authService.isLogged(request.getSession());

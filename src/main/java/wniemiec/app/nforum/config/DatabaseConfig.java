@@ -5,14 +5,28 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * Responsible for managing the database connection.
+ */
 public class DatabaseConfig {
 
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private static Database database;
 	
+
+	//-------------------------------------------------------------------------
+	//		Initialization block
+	//-------------------------------------------------------------------------
 	static {
 		database = new ProductionDatabase();
 	}
 	
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	public static void resetIndex() throws SQLException {
 		try {
 			Class.forName(getDriver());
@@ -34,6 +48,10 @@ public class DatabaseConfig {
 		stmt.executeUpdate();
 	}
 	
+
+	//-------------------------------------------------------------------------
+	//		Getters & Setters
+	//-------------------------------------------------------------------------
 	public static String getDriver() {
 		return database.getDriver();
 	}

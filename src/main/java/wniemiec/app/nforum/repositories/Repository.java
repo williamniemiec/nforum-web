@@ -6,12 +6,22 @@ import java.sql.SQLException;
 
 import wniemiec.app.nforum.config.DatabaseConfig;
 
+/**
+ * Responsible for accessing a table from database.
+ */
 public abstract class Repository {
 	
+	//-------------------------------------------------------------------------
+	//		Initialization block
+	//-------------------------------------------------------------------------
 	static {
 		loadDatasetDriver();
 	}
 
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	private static void loadDatasetDriver() {
 		try {
 			Class.forName(DatabaseConfig.getDriver());

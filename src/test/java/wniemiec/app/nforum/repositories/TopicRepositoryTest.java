@@ -14,12 +14,23 @@ import wniemiec.app.nforum.dto.TopicDTO;
 
 public class TopicRepositoryTest extends RepositoryTest {
 
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private TopicRepository topicRepository;
 	
+
+	//-------------------------------------------------------------------------
+	//		Constructor
+	//-------------------------------------------------------------------------
 	public TopicRepositoryTest() {
 		topicRepository = new TopicRepository();
 	}
 	
+	
+	//-------------------------------------------------------------------------
+	//		Tests
+	//-------------------------------------------------------------------------
 	@Test
 	public void testFindById() throws SQLException {
 		TopicDTO topic = topicRepository.findById(1);

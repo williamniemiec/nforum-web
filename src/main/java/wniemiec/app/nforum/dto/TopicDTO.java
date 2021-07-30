@@ -3,14 +3,25 @@ package wniemiec.app.nforum.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Responsible for projecting data from a topic.
+ */
 public class TopicDTO {
 
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private Integer id;
 	private String title;
 	private String content;
 	private UserDTO author;
 	private List<CommentDTO> comments;
 	
+
+	//-------------------------------------------------------------------------
+	//		Constructors
+	//-------------------------------------------------------------------------
 	public TopicDTO() {
 		comments = new ArrayList<>();
 	}
@@ -35,6 +46,10 @@ public class TopicDTO {
 		this.author = new UserDTO(authorId);
 	}
 
+
+	//-------------------------------------------------------------------------
+	//		Getters & Setters
+	//-------------------------------------------------------------------------
 	public Integer getId() {
 		return id;
 	}

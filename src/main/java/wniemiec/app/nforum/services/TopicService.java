@@ -11,11 +11,21 @@ import wniemiec.app.nforum.repositories.TopicRepository;
 import wniemiec.app.nforum.services.exceptions.ElementNotFoundException;
 import wniemiec.app.nforum.services.exceptions.NewElementException;
 
+/**
+ * Responsible for providing topic services.
+ */
 public class TopicService {
 
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private TopicRepository topicRepository = new TopicRepository();
 	private UserAccountService userService = new UserAccountService();
 	
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	public TopicDTO findById(Integer id) throws ElementNotFoundException {
 		try {
 			return topicRepository.findById(id);

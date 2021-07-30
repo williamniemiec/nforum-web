@@ -10,9 +10,16 @@ import org.junit.Before;
 import wniemiec.app.nforum.config.DatabaseConfig;
 
 public abstract class RepositoryTest {
-	
+
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	protected static JdbcDatabaseTester jdt;
 	
+
+	//-------------------------------------------------------------------------
+	//		Test hooks
+	//-------------------------------------------------------------------------
 	@Before
     public void setUp() throws Exception {
 		jdt = new JdbcDatabaseTester(

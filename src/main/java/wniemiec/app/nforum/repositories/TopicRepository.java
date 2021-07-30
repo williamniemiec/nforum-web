@@ -12,11 +12,21 @@ import wniemiec.app.nforum.repositories.enums.Points;
 import wniemiec.app.nforum.services.CommentService;
 import wniemiec.app.nforum.services.UserAccountService;
 
+/**
+ * Responsible for accessing the topics table from database.
+ */
 public class TopicRepository extends Repository {
 	
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private UserAccountService userService = new UserAccountService();
 	private CommentService commentService = new CommentService();
 
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	public TopicDTO findById(Integer id) throws SQLException {
 		TopicDTO topic = null;
 		

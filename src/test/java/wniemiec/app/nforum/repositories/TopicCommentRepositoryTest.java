@@ -15,12 +15,23 @@ import wniemiec.app.nforum.dto.CommentNewDTO;
 
 public class TopicCommentRepositoryTest extends RepositoryTest {
 	
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private CommentRepository commentRepository;
 	
+
+	//-------------------------------------------------------------------------
+	//		Constructors
+	//-------------------------------------------------------------------------
 	public TopicCommentRepositoryTest() {
 		commentRepository = new CommentRepository();
 	}
 	
+
+	//-------------------------------------------------------------------------
+	//		Tests
+	//-------------------------------------------------------------------------
 	@Test
 	public void testFindAllCommentsFromTopicWithId() throws SQLException {
 		List<CommentDTO> comments = commentRepository.findAllCommentsFromTopicWithId(1);

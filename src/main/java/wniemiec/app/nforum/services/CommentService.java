@@ -10,10 +10,20 @@ import wniemiec.app.nforum.dto.CommentNewDTO;
 import wniemiec.app.nforum.repositories.CommentRepository;
 import wniemiec.app.nforum.services.exceptions.NewElementException;
 
+/**
+ * Responsible for providing topic comment services.
+ */
 public class CommentService {
 
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private CommentRepository commentRepository = new CommentRepository();
 	
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	public List<CommentDTO> findAllCommentsFromTopicWithId(Integer id) {
 		try {
 			return commentRepository.findAllCommentsFromTopicWithId(id);

@@ -11,10 +11,20 @@ import wniemiec.app.nforum.dto.UserNewDTO;
 import wniemiec.app.nforum.repositories.UserAccountRepository;
 import wniemiec.app.nforum.services.exceptions.NewElementException;
 
+/**
+ * Responsible for providing user account services.
+ */
 public class UserAccountService {
 
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private UserAccountRepository userRepository = new UserAccountRepository();
 	
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	public UserDTO findByLogin(String login) {
 		try {
 			return userRepository.findByLogin(login);

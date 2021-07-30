@@ -8,15 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Responsible for handling authentication requests.
+ */
 @WebServlet({"/auth/signin", "/auth/signup", "/auth/logout"})
 public class AuthController extends HttpServlet {
 
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private static final long serialVersionUID = 1L;
-	
 	private SignInController signInController = new SignInController();
 	private SignUpController signUpController = new SignUpController();
 	private LogoutController logoutController = new LogoutController();
     
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		String uri = request.getRequestURI();

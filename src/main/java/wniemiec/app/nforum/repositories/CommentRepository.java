@@ -12,10 +12,20 @@ import wniemiec.app.nforum.dto.CommentNewDTO;
 import wniemiec.app.nforum.repositories.enums.Points;
 import wniemiec.app.nforum.services.UserAccountService;
 
+/**
+ * Responsible for accessing the topic comments table from database.
+ */
 public class CommentRepository extends Repository {
 	
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private UserAccountService userService = new UserAccountService();
 
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	public List<CommentDTO> findAllCommentsFromTopicWithId(Integer id) 
 			throws SQLException {
 		List<CommentDTO> comments = new ArrayList<>();

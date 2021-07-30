@@ -1,5 +1,8 @@
 package wniemiec.app.nforum.config;
 
+/**
+ * Defines information needed to communicate with the local database.
+ */
 public class LocalDatabase implements Database {
 
 	@Override

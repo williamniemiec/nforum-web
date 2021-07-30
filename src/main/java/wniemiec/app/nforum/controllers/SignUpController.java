@@ -10,10 +10,20 @@ import wniemiec.app.nforum.dto.UserNewDTO;
 import wniemiec.app.nforum.services.UserAccountService;
 import wniemiec.app.nforum.services.exceptions.NewElementException;
 
+/**
+ * Responsible for handling sign out requests.
+ */
 public class SignUpController {
-	
+
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private UserAccountService userService = new UserAccountService();
 
+
+	//-------------------------------------------------------------------------
+	//		Methods
+	//-------------------------------------------------------------------------
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		ViewLoader.loadView(request, response, "SignUpPage", "Sign Up");

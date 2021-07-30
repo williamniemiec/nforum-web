@@ -1,12 +1,23 @@
 package wniemiec.app.nforum.dto;
 
+
+/**
+ * Responsible for projecting data from a user.
+ */
 public class UserDTO {
 
+	//-------------------------------------------------------------------------
+	//		Attributes
+	//-------------------------------------------------------------------------
 	private String login;
 	private String name;
 	private String email;
 	private int points;
 	
+
+	//-------------------------------------------------------------------------
+	//		Constructors
+	//-------------------------------------------------------------------------
 	public UserDTO() {
 	}
 	
@@ -21,6 +32,10 @@ public class UserDTO {
 		this.setPoints(points);
 	}
 
+
+	//-------------------------------------------------------------------------
+	//		Getters & Setters
+	//-------------------------------------------------------------------------
 	public String getLogin() {
 		return login;
 	}
