@@ -2,9 +2,9 @@ package wniemiec.app.nforum.controllers;
 
 import java.io.IOException;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import wniemiec.app.nforum.core.ViewLoader;
 import wniemiec.app.nforum.dto.CredentialsDTO;
 import wniemiec.app.nforum.services.AuthService;
