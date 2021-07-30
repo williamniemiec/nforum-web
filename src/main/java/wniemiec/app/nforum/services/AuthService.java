@@ -1,6 +1,6 @@
 package wniemiec.app.nforum.services;
 
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 import wniemiec.app.nforum.dto.CredentialsDTO;
 import wniemiec.app.nforum.dto.UserDTO;
 
