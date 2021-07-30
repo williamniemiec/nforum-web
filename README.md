@@ -1,5 +1,5 @@
 <p align='center'>
-<img width="250px" src='https://raw.githubusercontent.com/williamniemiec/nForum/master/docs/img/logo/logo.png?raw=true' />
+<img src='https://raw.githubusercontent.com/williamniemiec/nForum/master/docs/img/logo/logo.jpg' />
 </p>
 
 <h1 align='center'>nForum</h1>
@@ -34,7 +34,7 @@ Details about each version are documented in the [releases section](https://gith
 
 ## 🗺 Project structure
 #### Architecture
-![project-diagram](https://raw.githubusercontent.com/williamniemiec/nForum/master/docs/design/architecture.png?raw=true)
+![project-diagram](https://raw.githubusercontent.com/williamniemiec/nForum/master/docs/design/architecture.jpg)
 
 #### Database
 ![database-diagram](https://raw.githubusercontent.com/williamniemiec/nForum/master/docs/design/db-schema.png?raw=true)
