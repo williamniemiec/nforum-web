@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 8
-    - name: Build with Maven and generate coverage report
+    - name: Build with Maven
       env:
         GITHUB_USERNAME: williamniemiec
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
