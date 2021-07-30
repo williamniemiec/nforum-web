@@ -24,8 +24,8 @@ The hosting service Heroku may have a certain delay (~ 1 min) for uploading the 
 Details about each version are documented in the [releases section](https://github.com/williamniemiec/nForum/releases).
 
 ## 🗺 Project structure
-#### Project
-![project-diagram](https://raw.githubusercontent.com/williamniemiec/nForum/master/docs/design/project-schema.png?raw=true)
+#### Architecture
+![project-diagram](https://raw.githubusercontent.com/williamniemiec/nForum/master/docs/design/architecture.png?raw=true)
 
 #### Database
 ![database-diagram](https://raw.githubusercontent.com/williamniemiec/nForum/master/docs/design/db-schema.png?raw=true)
