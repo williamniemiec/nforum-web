@@ -10,7 +10,7 @@ public class DatabaseConfig {
 	private static final Database database;
 	
 	static {
-		database = new LocalDatabase();
+		database = new ProductionDatabase();
 	}
 	
 	public static void resetIndex() throws SQLException {
