@@ -51,6 +51,6 @@ public class DatabaseConfig {
 	}
 	
 	public static void setDatabase(Database database) {
-		this.database = database;
+		DatabaseConfig.database = database;
 	}
 }
