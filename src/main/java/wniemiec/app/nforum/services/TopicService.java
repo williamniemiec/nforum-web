@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 import wniemiec.app.nforum.dto.TopicDTO;
 import wniemiec.app.nforum.dto.UserDTO;
 import wniemiec.app.nforum.repositories.TopicRepository;
