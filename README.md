@@ -2,8 +2,8 @@
 <img width="250px" src='https://raw.githubusercontent.com/williamniemiec/nForum/master/docs/img/logo/logo.png?raw=true' />
 </p>
 
-<h1 align='center'>FerramONG - Scheduler</h1>
-<p align='center'>Service responsible for scheduling user visits to bring tools to the ONG.</p>
+<h1 align='center'>nForum</h1>
+<p align='center'>Simple forum.</p>
 <p align="center">
 	<a href="https://github.com/williamniemiec/nForum/actions/workflows/windows.yml"><img src="https://github.com/williamniemiec/nForum/actions/workflows/windows.yml/badge.svg" alt=""></a>
 	<a href="https://github.com/williamniemiec/nForum/actions/workflows/macos.yml"><img src="https://github.com/williamniemiec/nForum/actions/workflows/macos.yml/badge.svg" alt=""></a>
