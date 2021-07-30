@@ -18,6 +18,7 @@ jobs:
         java-version: 8
     - name: Build with Maven and generate coverage report
       env:
+        JDBC_DATABASE_URL: jdbc:postgresql://ec2-3-212-75-25.compute-1.amazonaws.com:5432/dbjglsh5vl0jup?password=6e44e97bcbe891fc33e0e673f0d65ab143522a33c7683e221b9a82dddc6b8403&sslmode=require&user=jrctucgfmasimh
         GITHUB_USERNAME: williamniemiec
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: mvn --file pom.xml jacoco:prepare-agent install jacoco:report
