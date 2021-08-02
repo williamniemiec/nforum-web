@@ -17,6 +17,11 @@
 ## ❇ Introduction
 This is a simple forum project made using servlets and jsp pages. The main objective was to develop a web application without using the spring framework, for learning purposes. You can interact with the project through the Heroku platform ([click here to access](https://wniemiec-app-nforum.herokuapp.com/)) 
 
+### Login information
+| Email| Password |
+|------- | ----- |
+| william@email.com |123|
+
 ## ⚠ Warnings
 The hosting service Heroku may have a certain delay (~ 1 min) for uploading the application so the loading of the website may have a certain delay. 
 
