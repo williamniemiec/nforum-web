@@ -17,7 +17,7 @@
 <hr />
 
 ## ❇ Introduction
-nForum is a simple web forum built with servlets and JSP pages. This application was made for the sole purpose of learning how to develop a web application without using the Spring Framework. You can interact with the project through the Heroku platform ([click here to access](https://wniemiec-web-nforum.herokuapp.com/)).
+nForum is a simple web forum built with servlets and JSP pages along with [Selenium framework](https://www.selenium.dev/) for testing. This application was made for the sole purpose of learning how to develop a web application without using the Spring framework. You can interact with the project through the Heroku platform ([click here to access](https://wniemiec-web-nforum.herokuapp.com/)).
 
 
 ### Login information
