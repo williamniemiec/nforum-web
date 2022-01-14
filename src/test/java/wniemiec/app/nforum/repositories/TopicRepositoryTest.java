@@ -10,7 +10,8 @@ import org.dbunit.dataset.ITable;
 import org.dbunit.util.fileloader.FlatXmlDataFileLoader;
 import org.junit.Test;
 
-import wniemiec.app.nforum.dto.TopicDTO;
+import wniemiec.web.nforum.dto.TopicDTO;
+import wniemiec.web.nforum.repositories.TopicRepository;
 
 public class TopicRepositoryTest extends RepositoryTest {
 

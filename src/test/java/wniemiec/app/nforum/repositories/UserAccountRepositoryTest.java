@@ -10,7 +10,8 @@ import org.dbunit.dataset.ITable;
 import org.dbunit.util.fileloader.FlatXmlDataFileLoader;
 import org.junit.Test;
 
-import wniemiec.app.nforum.dto.UserDTO;
+import wniemiec.web.nforum.dto.UserDTO;
+import wniemiec.web.nforum.repositories.UserAccountRepository;
 
 public class UserAccountRepositoryTest extends RepositoryTest {
 	

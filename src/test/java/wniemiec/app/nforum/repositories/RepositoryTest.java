@@ -7,7 +7,7 @@ import org.dbunit.util.fileloader.FlatXmlDataFileLoader;
 import org.junit.After;
 import org.junit.Before;
 
-import wniemiec.app.nforum.config.DatabaseConfig;
+import wniemiec.web.nforum.config.DatabaseConfig;
 
 public abstract class RepositoryTest {
 

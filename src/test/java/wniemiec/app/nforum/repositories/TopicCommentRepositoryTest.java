@@ -10,8 +10,9 @@ import org.dbunit.dataset.ITable;
 import org.dbunit.util.fileloader.FlatXmlDataFileLoader;
 import org.junit.Test;
 
-import wniemiec.app.nforum.dto.CommentDTO;
-import wniemiec.app.nforum.dto.CommentNewDTO;
+import wniemiec.web.nforum.dto.CommentDTO;
+import wniemiec.web.nforum.dto.CommentNewDTO;
+import wniemiec.web.nforum.repositories.CommentRepository;
 
 public class TopicCommentRepositoryTest extends RepositoryTest {
 	

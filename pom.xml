@@ -5,14 +5,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>wniemiec.app</groupId>
+	<groupId>wniemiec.web</groupId>
 	<artifactId>nforum</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
 
 	<name>nForum</name>
-	<description>Simple forum.</description>
-	<url>https://github.com/williamniemiec/nforum</url>
+	<description>Simple web forum built with servlets and JSP without Spring Framework.</description>
+	<url>https://github.com/williamniemiec/nforum-web</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
