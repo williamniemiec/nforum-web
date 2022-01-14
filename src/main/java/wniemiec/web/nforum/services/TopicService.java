@@ -3,14 +3,13 @@ package wniemiec.web.nforum.services;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
-
 import wniemiec.web.nforum.dto.TopicDTO;
 import wniemiec.web.nforum.dto.UserDTO;
 import wniemiec.web.nforum.repositories.TopicRepository;
 import wniemiec.web.nforum.services.exceptions.ElementNotFoundException;
 import wniemiec.web.nforum.services.exceptions.NewElementException;
+
 
 /**
  * Responsible for providing topic services.
@@ -20,8 +19,17 @@ public class TopicService {
 	//-------------------------------------------------------------------------
 	//		Attributes
 	//-------------------------------------------------------------------------
-	private TopicRepository topicRepository = new TopicRepository();
-	private UserAccountService userService = new UserAccountService();
+	private final TopicRepository topicRepository;
+	private final UserAccountService userService;
+
+
+	//-------------------------------------------------------------------------
+	//		Constructor
+	//-------------------------------------------------------------------------
+	public TopicService() {
+		topicRepository = new TopicRepository();
+		userService = new UserAccountService();
+	}
 	
 
 	//-------------------------------------------------------------------------
@@ -37,7 +45,7 @@ public class TopicService {
 	}
 	
 	public void insert(TopicDTO topic, HttpSession session) 
-			throws NewElementException {
+	throws NewElementException {
 		bindWithSessionId(topic, session);
 		validateNewTopic(topic);
 		
@@ -51,19 +59,29 @@ public class TopicService {
 	}
 
 	private void validateNewTopic(TopicDTO topic) throws NewElementException {
-		if (topic.getTitle() == null)
+		if (topic.getTitle() == null) {
 			throw new NewElementException("Title cannot be null");
+		}
 		
-		if (topic.getContent() == null)
+		if (topic.getContent() == null) {
 			throw new NewElementException("Content cannot be null");
+		}
 		
-		if (topic.getAuthor() == null)
+		if (topic.getAuthor() == null) {
 			throw new NewElementException("Unauthenticated user");
+		}
 	}
 
 	private void bindWithSessionId(TopicDTO topic, HttpSession session) {
-		UserDTO author = userService.findByLogin((String) session.getAttribute("userId"));
-		topic.setAuthor(author);
+		topic.setAuthor(getAuthenticatedUser(session));
+	}
+
+	private UserDTO getAuthenticatedUser(HttpSession session) {
+		return userService.findByLogin(getUserIdFromSession(session));
+	}
+
+	private String getUserIdFromSession(HttpSession session) {
+		return (String) session.getAttribute("userId");
 	}
 	
 	public List<TopicDTO> getTopics() {

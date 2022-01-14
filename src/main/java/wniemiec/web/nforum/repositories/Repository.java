@@ -3,8 +3,8 @@ package wniemiec.web.nforum.repositories;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 import wniemiec.web.nforum.config.DatabaseConfig;
+
 
 /**
  * Responsible for accessing a table from database.

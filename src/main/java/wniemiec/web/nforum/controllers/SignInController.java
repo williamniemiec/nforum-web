@@ -48,7 +48,7 @@ public class SignInController {
 			request.getParameter("password")
 		);
 		
-		boolean success = authService.signin(
+		boolean success = authService.signIn(
 			credentialsDto, 
 			request.getSession()
 		);

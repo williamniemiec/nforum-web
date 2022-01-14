@@ -20,23 +20,28 @@ public class CommentRepository extends Repository {
 	//-------------------------------------------------------------------------
 	//		Attributes
 	//-------------------------------------------------------------------------
-	private UserAccountService userService = new UserAccountService();
+	private final UserAccountService userService;
+
+
+	//-------------------------------------------------------------------------
+	//		Constructor
+	//-------------------------------------------------------------------------
+	public CommentRepository() {
+		userService = new UserAccountService();
+	}
 
 
 	//-------------------------------------------------------------------------
 	//		Methods
 	//-------------------------------------------------------------------------
 	public List<CommentDTO> findAllCommentsFromTopicWithId(Integer id) 
-			throws SQLException {
+	throws SQLException {
 		List<CommentDTO> comments = new ArrayList<>();
 		
-		try (Connection c = buildDatabaseConnection()) {
-			PreparedStatement stmt = c.prepareStatement(buildQuery(
-				"SELECT	*",
-				"FROM	topic_comment",
-				"WHERE	id_topic = ?"
-			));
-			
+		try (
+			Connection c = buildDatabaseConnection();
+			PreparedStatement stmt = buildFindTopicByIdStatement(c);
+		) {
 			stmt.setInt(1, id);
 			
 			ResultSet rs = stmt.executeQuery();
@@ -52,6 +57,15 @@ public class CommentRepository extends Repository {
 		
 		return comments;
 	}
+
+	private PreparedStatement buildFindTopicByIdStatement(Connection c) 
+	throws SQLException {
+		return c.prepareStatement(buildQuery(
+			"SELECT  *",
+			"FROM    topic_comment",
+			"WHERE   id_topic = ?"
+		));
+	}
 	
 	public void insert(CommentNewDTO comment) throws SQLException {
 		try (Connection c = buildDatabaseConnection()) {			
@@ -65,29 +79,39 @@ public class CommentRepository extends Repository {
 	}
 
 	private void insertComment(CommentNewDTO comment, Connection c) 
-			throws SQLException {
-		PreparedStatement stmt = c.prepareStatement(buildQuery(
-			"INSERT	INTO topic_comment",
+	throws SQLException {
+		try (PreparedStatement stmt = buildInsertCommentStatement(c)) {
+			stmt.setString(1, comment.getContent());
+			stmt.setString(2, comment.getAuthorId());
+			stmt.setInt(3, comment.getTopicId());
+			stmt.executeUpdate();
+		}
+	}
+
+	private PreparedStatement buildInsertCommentStatement(Connection c) 
+	throws SQLException {
+		return c.prepareStatement(buildQuery(
+			"INSERT INTO topic_comment",
 			"(\"comment\", login, id_topic)",
 			"VALUES (?, ?, ?)"
 		));
-		
-		stmt.setString(1, comment.getContent());
-		stmt.setString(2, comment.getAuthorId());
-		stmt.setInt(3, comment.getTopicId());
-		stmt.executeUpdate();
 	}
 
 	private void addPointsForAuthor(CommentNewDTO comment, Connection c) 
-			throws SQLException {
-		PreparedStatement stmt = c.prepareStatement(buildQuery(
-			"UPDATE	user_account",
-			"SET 	points = points + ?",
-			"WHERE 	login = ?"
+	throws SQLException {
+		try (PreparedStatement stmt = buildAddPointsStatement(c)) {
+			stmt.setInt(1, Points.NEW_COMMENT.getValue());
+			stmt.setString(2, comment.getAuthorId());
+			stmt.executeUpdate();
+		}
+	}
+
+	private PreparedStatement buildAddPointsStatement(Connection c) 
+	throws SQLException {
+		return c.prepareStatement(buildQuery(
+			"UPDATE user_account",
+			"SET    points = points + ?",
+			"WHERE  login = ?"
 		));
-		
-		stmt.setInt(1, Points.NEW_COMMENT.getValue());
-		stmt.setString(2, comment.getAuthorId());
-		stmt.executeUpdate();
 	}
 }

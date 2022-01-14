@@ -1,9 +1,9 @@
 package wniemiec.web.nforum.services;
 
 import javax.servlet.http.HttpSession;
-
 import wniemiec.web.nforum.dto.CredentialsDTO;
 import wniemiec.web.nforum.dto.UserDTO;
+
 
 /**
  * Responsible for providing authentication services.
@@ -13,24 +13,37 @@ public class AuthService {
 	//-------------------------------------------------------------------------
 	//		Attributes
 	//-------------------------------------------------------------------------
-	private UserAccountService userService = new UserAccountService();
+	private final UserAccountService userService;
+
+
+	//-------------------------------------------------------------------------
+	//		Constructor
+	//-------------------------------------------------------------------------
+	public AuthService() {
+		userService = new UserAccountService();
+	}
 
 
 	//-------------------------------------------------------------------------
 	//		Methods
 	//-------------------------------------------------------------------------
-	public boolean signin(CredentialsDTO credentials, HttpSession session) {
-		UserDTO user = userService.findByLoginAndPassword(
-			credentials.getLogin(),
-			credentials.getPassword()
-		);
-		
-		if (user == null)
+	public boolean signIn(CredentialsDTO credentials, HttpSession session) {
+		if (!hasUserWithCredentials(credentials)) {
 			return false;
+		}
 		
 		session.setAttribute("userId", credentials.getLogin());
 		
 		return true;
+	}
+
+	private boolean hasUserWithCredentials(CredentialsDTO credentials) {
+		UserDTO user = userService.findByLoginAndPassword(
+			credentials.getLogin(),
+			credentials.getPassword()
+		);
+
+		return (user != null);
 	}
 	
 	public void logout(HttpSession session) {

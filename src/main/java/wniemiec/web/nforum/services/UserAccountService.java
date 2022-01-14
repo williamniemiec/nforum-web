@@ -3,13 +3,12 @@ package wniemiec.web.nforum.services;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.codec.digest.DigestUtils;
-
 import wniemiec.web.nforum.dto.UserDTO;
 import wniemiec.web.nforum.dto.UserNewDTO;
 import wniemiec.web.nforum.repositories.UserAccountRepository;
 import wniemiec.web.nforum.services.exceptions.NewElementException;
+
 
 /**
  * Responsible for providing user account services.
@@ -19,7 +18,15 @@ public class UserAccountService {
 	//-------------------------------------------------------------------------
 	//		Attributes
 	//-------------------------------------------------------------------------
-	private UserAccountRepository userRepository = new UserAccountRepository();
+	private final UserAccountRepository userRepository;
+
+
+	//-------------------------------------------------------------------------
+	//		Constructor
+	//-------------------------------------------------------------------------
+	public UserAccountService() {
+		userRepository = new UserAccountRepository();
+	}
 	
 
 	//-------------------------------------------------------------------------
@@ -36,8 +43,9 @@ public class UserAccountService {
 	}
 	
 	public UserDTO findByLoginAndPassword(String login, String password) {
-		if ((login == null) || (password == null))
+		if ((login == null) || (password == null)) {
 			return null;
+		}
 		
 		try {
 			return userRepository.findByLoginAndPassword(
@@ -51,8 +59,7 @@ public class UserAccountService {
 		}
 	}
 	
-	public boolean insert(UserNewDTO newUser) 
-			throws NewElementException {
+	public boolean insert(UserNewDTO newUser) throws NewElementException {
 		validate(newUser);
 		
 		boolean success = false;
@@ -73,17 +80,21 @@ public class UserAccountService {
 	}
 	
 	private void validate(UserNewDTO newUser) throws NewElementException {
-		if (newUser.getName() == null)
+		if (newUser.getName() == null) {
 			throw new NewElementException("Name cannot be null");
+		}
 		
-		if (newUser.getEmail() == null)
+		if (newUser.getEmail() == null) {
 			throw new NewElementException("Email cannot be null");
+		}
 		
-		if (newUser.getPassword() == null)
+		if (newUser.getPassword() == null) {
 			throw new NewElementException("Password cannot be null");
+		}
 		
-		if (newUser.getLogin() == null)
+		if (newUser.getLogin() == null) {
 			throw new NewElementException("Login cannot be null");
+		}
 	}
 
 	public List<UserDTO> getRanking() {

@@ -3,13 +3,12 @@ package wniemiec.web.nforum.services;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
-
 import wniemiec.web.nforum.dto.CommentDTO;
 import wniemiec.web.nforum.dto.CommentNewDTO;
 import wniemiec.web.nforum.repositories.CommentRepository;
 import wniemiec.web.nforum.services.exceptions.NewElementException;
+
 
 /**
  * Responsible for providing topic comment services.
@@ -19,7 +18,15 @@ public class CommentService {
 	//-------------------------------------------------------------------------
 	//		Attributes
 	//-------------------------------------------------------------------------
-	private CommentRepository commentRepository = new CommentRepository();
+	private final CommentRepository commentRepository;
+
+
+	//-------------------------------------------------------------------------
+	//		Constructor
+	//-------------------------------------------------------------------------
+	public CommentService() {
+		commentRepository = new CommentRepository();
+	}
 	
 
 	//-------------------------------------------------------------------------
@@ -36,7 +43,7 @@ public class CommentService {
 	}
 	
 	public void insert(CommentNewDTO comment, HttpSession session) 
-			throws NewElementException {
+	throws NewElementException {
 		bindWithSessionId(comment, session);
 		validateComment(comment);
 		
@@ -53,14 +60,18 @@ public class CommentService {
 		comment.setAuthor((String) session.getAttribute("userId"));
 	}
 
-	private void validateComment(CommentNewDTO comment) throws NewElementException {
-		if (comment.getAuthorId() == null)
+	private void validateComment(CommentNewDTO comment) 
+	throws NewElementException {
+		if (comment.getAuthorId() == null) {
 			throw new NewElementException("Unauthenticated user");
+		}
 		
-		if (comment.getTopicId() == null)
+		if (comment.getTopicId() == null) {
 			throw new NewElementException("Invalid topic id");
+		}
 		
-		if (comment.getContent() == null)
+		if (comment.getContent() == null) {
 			throw new NewElementException("Content cannot be null");
+		}
 	}
 }

@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import wniemiec.web.nforum.dto.UserDTO;
+
 
 /**
  * Responsible for accessing the user account table from database.
@@ -23,12 +23,10 @@ public class UserAccountRepository extends Repository {
 		
 		UserDTO user = null;
 		
-		try (Connection c = buildDatabaseConnection()) {
-			PreparedStatement stmt = c.prepareStatement(buildQuery(
-				"SELECT	*",
-				"FROM	user_account",
-				"WHERE	login = ?"
-			));
+		try (
+			Connection c = buildDatabaseConnection();
+			PreparedStatement stmt = buildFindUserByLoginStatement(c);
+		) {
 			stmt.setString(1, login);
 			
 			ResultSet rs = stmt.executeQuery();
@@ -45,19 +43,24 @@ public class UserAccountRepository extends Repository {
 		
 		return user;
 	}
+
+	private PreparedStatement buildFindUserByLoginStatement(Connection c) 
+	throws SQLException {
+		return c.prepareStatement(buildQuery(
+			"SELECT *",
+			"FROM   user_account",
+			"WHERE  login = ?"
+		));
+	}
 	
 	public UserDTO findByLoginAndPassword(String login, String password) 
-			throws SQLException {
+	throws SQLException {
 		UserDTO user = null;
 		
-		try (Connection c = buildDatabaseConnection()) {
-			PreparedStatement stmt = c.prepareStatement(buildQuery(
-				"SELECT	*",
-				"FROM	user_account",
-				"WHERE	login = ?",
-				"		AND \"password\" = ?"
-			));
-			
+		try (
+			Connection c = buildDatabaseConnection();
+			PreparedStatement stmt = buildFindUserByLoginAndPasswordStatement(c);
+		) {
 			stmt.setString(1, login);
 			stmt.setString(2, password);
 			
@@ -75,16 +78,23 @@ public class UserAccountRepository extends Repository {
 		
 		return user;
 	}
+
+	private PreparedStatement buildFindUserByLoginAndPasswordStatement(Connection c) 
+	throws SQLException {
+		return c.prepareStatement(buildQuery(
+			"SELECT *",
+			"FROM   user_account",
+			"WHERE  login = ?",
+			"       AND \"password\" = ?"
+		));
+	}
 	
 	public boolean insert(String name, String login, String email, String password) 
 			throws SQLException {
-		try (Connection c = buildDatabaseConnection()) {
-			PreparedStatement stmt = c.prepareStatement(buildQuery(
-				"INSERT INTO user_account",
-				"(\"name\", login, email, \"password\", points)",
-				"VALUES (?, ?, ?, ?, 0)"
-			));
-			
+		try (
+			Connection c = buildDatabaseConnection();
+			PreparedStatement stmt = buildInsertUserStatement(c);
+		) {
 			stmt.setString(1, name);
 			stmt.setString(2, login);
 			stmt.setString(3, email);
@@ -94,30 +104,43 @@ public class UserAccountRepository extends Repository {
 		}
 	}
 
+	private PreparedStatement buildInsertUserStatement(Connection c) 
+	throws SQLException {
+		return c.prepareStatement(buildQuery(
+			"INSERT INTO user_account",
+			"(\"name\", login, email, \"password\", points)",
+			"VALUES (?, ?, ?, ?, 0)"
+		));
+	}
+
 	public boolean insertPoints(String login, int points) throws SQLException {
-		try (Connection c = buildDatabaseConnection()) {
-			PreparedStatement stmt = c.prepareStatement(buildQuery(
-				"UPDATE	user_account",
-				"SET 	points = points + ?",
-				"WHERE 	login = ?"
-			));
-			
+		try (
+			Connection c = buildDatabaseConnection();
+			PreparedStatement stmt = buildAddPointsStatement(c);
+		) {
 			stmt.setInt(1, points);
 			stmt.setString(2, login);	
 			
 			return (stmt.executeUpdate() != 0);
 		}
 	}
+
+	private PreparedStatement buildAddPointsStatement(Connection c) 
+	throws SQLException {
+		return c.prepareStatement(buildQuery(
+			"UPDATE user_account",
+			"SET    points = points + ?",
+			"WHERE  login = ?"
+		));
+	}
 	
 	public List<UserDTO> getRanking() throws SQLException {
 		List<UserDTO> users = new ArrayList<>();
 		
-		try (Connection c = buildDatabaseConnection()) {
-			PreparedStatement stmt = c.prepareStatement(buildQuery(
-				"SELECT		*",
-				"FROM		user_account",
-				"ORDER BY	points DESC"
-			));
+		try (
+			Connection c = buildDatabaseConnection();
+			PreparedStatement stmt = buildFindAllUserByPointsDescStatement(c);
+		) {
 			ResultSet rs = stmt.executeQuery();
 			
 			while (rs.next()) {
@@ -131,5 +154,14 @@ public class UserAccountRepository extends Repository {
 		}
 		
 		return users;
+	}
+
+	private PreparedStatement buildFindAllUserByPointsDescStatement(Connection c) 
+	throws SQLException {
+		return c.prepareStatement(buildQuery(
+			"SELECT     *",
+			"FROM       user_account",
+			"ORDER BY   points DESC"
+		));
 	}
 }
