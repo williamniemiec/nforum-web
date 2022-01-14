@@ -6,7 +6,6 @@ import static org.junit.Assert.assertThat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+
 
 public class UITests {
 
@@ -60,7 +60,10 @@ public class UITests {
 		driver.findElement(By.cssSelector(".btn:nth-child(3)")).click();
 		driver.findElement(By.cssSelector(".container:nth-child(1)")).click();
 
-		assertThat(driver.findElement(By.cssSelector(".container:nth-child(1)")).getText(), is("Topics"));
+		assertThat(
+			driver.findElement(By.cssSelector(".container:nth-child(1)")).getText(), 
+			is("Topics")
+		);
 	}
 
 	@Test
@@ -76,7 +79,10 @@ public class UITests {
 		driver.findElement(By.cssSelector(".btn:nth-child(1)")).click();
 		driver.findElement(By.cssSelector(".container:nth-child(1)")).click();
 		
-		assertThat(driver.findElement(By.cssSelector(".container:nth-child(1)")).getText(), is("New topic"));
+		assertThat(
+			driver.findElement(By.cssSelector(".container:nth-child(1)")).getText(), 
+			is("New topic")
+		);
 		{
 			List<WebElement> elements = driver.findElements(By.cssSelector(".btn"));
 			assert (elements.size() > 0);
@@ -96,7 +102,10 @@ public class UITests {
 		driver.findElement(By.linkText("Ranking")).click();
 		driver.findElement(By.cssSelector(".container:nth-child(1)")).click();
 		
-		assertThat(driver.findElement(By.cssSelector(".container:nth-child(1)")).getText(), is("Ranking"));
+		assertThat(
+			driver.findElement(By.cssSelector(".container:nth-child(1)")).getText(), 
+			is("Ranking")
+		);
 	}
 
 	@Test
@@ -117,7 +126,10 @@ public class UITests {
 			builder.doubleClick(element).perform();
 		}
 		
-		assertThat(driver.findElement(By.cssSelector("h1:nth-child(2)")).getText(), is("Answers"));
+		assertThat(
+			driver.findElement(By.cssSelector("h1:nth-child(2)")).getText(), 
+			is("Answers")
+		);
 		driver.findElement(By.cssSelector("label")).click();
 		driver.findElement(By.cssSelector("label")).click();
 		driver.findElement(By.cssSelector("label")).click();
@@ -126,7 +138,10 @@ public class UITests {
 			Actions builder = new Actions(driver);
 			builder.doubleClick(element).perform();
 		}
-		assertThat(driver.findElement(By.cssSelector("label")).getText(), is("Message"));
+		assertThat(
+			driver.findElement(By.cssSelector("label")).getText(), 
+			is("Message")
+		);
 		{
 			List<WebElement> elements = driver.findElements(By.cssSelector(".btn"));
 			assert (elements.size() > 0);

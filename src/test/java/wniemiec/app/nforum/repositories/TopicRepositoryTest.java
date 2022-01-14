@@ -4,14 +4,13 @@ import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
 import java.util.List;
-
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ITable;
 import org.dbunit.util.fileloader.FlatXmlDataFileLoader;
 import org.junit.Test;
-
 import wniemiec.web.nforum.dto.TopicDTO;
 import wniemiec.web.nforum.repositories.TopicRepository;
+
 
 public class TopicRepositoryTest extends RepositoryTest {
 
