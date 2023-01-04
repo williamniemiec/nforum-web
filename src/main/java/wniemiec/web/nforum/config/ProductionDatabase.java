@@ -13,16 +13,16 @@ public class ProductionDatabase implements Database {
 	
 	@Override
 	public String getUri() {
-		return System.getenv("JDBC_DATABASE_URL");
+		return "jdbc:postgresql://github-database-postgres.fly.dev:5432/nform";
 	}
 	
 	@Override
 	public String getUsername() {
-		return "jrctucgfmasimh";
+		return "postgres";
 	}
 	
 	@Override
 	public String getPassword() {
-		return "6e44e97bcbe891fc33e0e673f0d65ab143522a33c7683e221b9a82dddc6b8403";
+		return "oiVDIqbul3VfqAt";
 	}
 }

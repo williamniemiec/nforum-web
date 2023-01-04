@@ -11,7 +11,7 @@
 	<a href="https://github.com/williamniemiec/nforum-web/blob/master/LICENSE"><img src="https://img.shields.io/github/license/williamniemiec/nforum-web" alt="License"></a>
 </p>
 <p align="center">
-	<a href='https://wniemiec-web-nforum.herokuapp.com/)'><img alt='Deploy' src='https://www.herokucdn.com/deploy/button.svg' width=200/></a>
+	<a href='https://wniemiec-web-nforum.up.railway.app/)'><img alt='Deploy to Railway' src='https://railway.app/button.svg' width=200/></a>
 </p>
 
 <hr />
@@ -23,13 +23,29 @@ nForum is a simple web forum built with servlets and JSP pages along with [Selen
 ### Login information
 | Email| Password |
 |------- | ----- |
-| william@email.com |123|
+| user@email.com |123|
 
 ## ⚠ Warnings
 The hosting service Heroku may have a certain delay (~ 1 min) for uploading the application so the loading of the website may have a certain delay. 
 
 ## ✔ Requiremens
-- [JDK 8+](https://www.oracle.com/java/technologies/downloads/);
+- [JDK 8+](https://www.oracle.com/java/);
+- [Postgres v14+](https://www.postgresql.org/);
+- [Chrome (for running tests)](https://www.google.com/chrome/);
+
+## Commands
+
+#### Install project dependencies
+
+```
+mvn install
+```
+
+#### Run project
+```
+mvn run
+```
+
 
 ## 🖼 Gallery
 
