@@ -11,7 +11,7 @@
 	<a href="https://github.com/williamniemiec/nforum-web/blob/master/LICENSE"><img src="https://img.shields.io/github/license/williamniemiec/nforum-web" alt="License"></a>
 </p>
 <p align="center">
-	<a href='https://wniemiec-web-nforum.up.railway.app/)'><img alt='Deploy to Railway' src='https://railway.app/button.svg' width=200/></a>
+	<a href='https://wniemiec-web-nforum.up.railway.app/'><img alt='Deploy to Railway' src='https://railway.app/button.svg' width=200/></a>
 </p>
 
 <hr />
