@@ -1,6 +1,6 @@
 ![](https://raw.githubusercontent.com/williamniemiec/nforum-web/master/docs/images/logo/logo.jpg)
 
-<h1 align='center'>nForum API</h1>
+<h1 align='center'>nForum WEB</h1>
 <p align='center'>Simple web forum built with servlets and JSP without Spring Framework.</p>
 <p align="center">
 	<a href="https://github.com/williamniemiec/nforum-web/actions/workflows/windows.yml"><img src="https://github.com/williamniemiec/nforum-web/actions/workflows/windows.yml/badge.svg" alt=""></a>
@@ -11,13 +11,13 @@
 	<a href="https://github.com/williamniemiec/nforum-web/blob/master/LICENSE"><img src="https://img.shields.io/github/license/williamniemiec/nforum-web" alt="License"></a>
 </p>
 <p align="center">
-	<a href='https://wniemiec-web-nforum.up.railway.app/'><img alt='Deploy to Railway' src='https://railway.app/button.svg' width=200/></a>
+	<a href='https://wniemiec-web-nforum.render.com/'><img alt='Deploy to Render' src='https://render.com/images/deploy-to-render-button.svg' width=200/></a>
 </p>
 
 <hr />
 
 ## ❇ Introduction
-nForum is a simple web forum built with servlets and JSP pages along with [Selenium framework](https://www.selenium.dev/) for testing. This application was made for the sole purpose of learning how to develop a web application without using the Spring framework. You can interact with the project through the Heroku platform ([click here to access](https://wniemiec-web-nforum.up.railway.app/)).
+nForum is a simple web forum built with servlets and JSP pages along with [Selenium framework](https://www.selenium.dev/) for testing. This application was made for the sole purpose of learning how to develop a web application without using the Spring framework. You can interact with the project through the Heroku platform ([click here to access](https://wniemiec-web-nforum.render.com/)).
 
 
 ### Login information
