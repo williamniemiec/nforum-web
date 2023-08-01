@@ -11,13 +11,13 @@
 	<a href="https://github.com/williamniemiec/nforum-web/blob/master/LICENSE"><img src="https://img.shields.io/github/license/williamniemiec/nforum-web" alt="License"></a>
 </p>
 <p align="center">
-	<a href='https://wniemiec-web-nforum.render.com/'><img alt='Deploy to Render' src='https://render.com/images/deploy-to-render-button.svg' width=200/></a>
+	<a href='https://wniemiec-web-nforum.onrender.com/'><img alt='Deploy to Render' src='https://render.com/images/deploy-to-render-button.svg' width=200/></a>
 </p>
 
 <hr />
 
 ## ❇ Introduction
-nForum is a simple web forum built with servlets and JSP pages along with [Selenium framework](https://www.selenium.dev/) for testing. This application was made for the sole purpose of learning how to develop a web application without using the Spring framework. You can interact with the project through the Heroku platform ([click here to access](https://wniemiec-web-nforum.render.com/)).
+nForum is a simple web forum built with servlets and JSP pages along with [Selenium framework](https://www.selenium.dev/) for testing. This application was made for the sole purpose of learning how to develop a web application without using the Spring framework. You can interact with the project through the Heroku platform ([click here to access](https://wniemiec-web-nforum.onrender.com/)).
 
 
 ### Login information
