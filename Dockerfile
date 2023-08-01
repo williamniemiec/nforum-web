@@ -12,4 +12,4 @@ RUN mvn -f /home/app/pom.xml clean package -DskipTests
 FROM openjdk:11-jre-slim
 COPY --from=build /home/app/target/dependency/webapp-runner.jar /usr/local/lib/nforum.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-Dserver.port=8080","-Dspring.profiles.active=prod", "-jar","/usr/local/lib/nforum.jar", "target/*.war"]
+ENTRYPOINT ["java","-Dserver.port=8080","-Dspring.profiles.active=prod", "-jar","/usr/local/lib/nforum.jar", "/home/app/target/*.war"]
